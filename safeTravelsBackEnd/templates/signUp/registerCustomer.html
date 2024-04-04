@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/safetravels.css') }}">
+    <title>Register</title>
+    <script src="https://kit.fontawesome.com/15d11a4d8d.js" crossorigin="anonymous"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lcx3pklAAAAACgmgYaL4G5DMN5s71gnh13fuSwl"></script>
+        <script>
+            function onSubmit(token) {
+                document.getElementById('submit').disabled=false
+        }
+    </script>
+
+</head>
+ <header>
+            <a href="/"><img class="logo" src="{{ url_for('static', filename='Images/SafeTravelsLogo.png') }}"> </a>
+            <!-- <p class="head">Search</p> -->
+            <a href="/searchAttractions" class="head">Attractions</a>
+            <a href="/flight" class="head">Flights</a>
+            <a href="/searchHotels" class="head">Hotels</a>
+            <a href="/searchRestaurants" class="head">Restaurants</a>
+                <!-- maybe flights, hotels, and restaurants could be a drop down menu -->
+           <a class="head" onclick="getUserItinerary()" >Itinerary</a>
+            <a class="head login nav-item nav-link" id="loginCustomer" href="/loginCustomer" onclick="loggingUser()">Login/Sign Up</a>
+                <!-- login page -->
+        </header>
+{#<body class="loginWidth registerCustomer">#}
+<body>
+    <div class="loginWidth registerCustomer" style="margin-bottom: 100px">
+
+
+{#    <span class="backArrow"><a href="loginCustomer"><i class="fa-regular fa-circle-left"></i></a></span>#}
+    <h1 style="text-align:center">Register</h1>
+    <form class="registerForm" method="POST" action="/registerCustomerDetails">
+        <div>
+            <label for="userName"> Username </label>
+            <input name="userName" required/>
+        </div>
+        <div>
+            <label for="email"> Email </label>
+            <input name="emailAddress" id="emailAddress" required/>
+        </div>
+        <div>
+            <div>
+                <label for="password">Password</label>
+                <i class="fa-regular fa-eye-slash showPassword" id="showPassword"></i>
+            </div>
+            <input name="password" type="password" id="passwordInput" required/>
+        </div>
+        <div>
+            <div>
+                <label for="confirmPassword"> Confirm Password </label>
+                <i class="fa-regular fa-eye-slash showPassword" id="showPassword2"></i>
+            </div>
+            <input name="confirmPassword" type="password" id="passwordInput2" required/>
+        </div>
+{#        <div>#}
+{#            <label class="checkboxNotRobot">I am not a robot.#}
+{#                <input type="checkbox"/>#}
+{#            </label>#}
+{#        </div>#}
+{#    </form>#}
+{#    <form method="POST">#}
+        <h3 style="margin-top: 50px">Please answer these security questions.</h3>
+        <div>
+            <label for="answerOne">What city were you born in?</label>
+            <input name="answerOne" required />
+        </div>
+        <div>
+            <label for="answerTwo">What is the name of your high school?</label>
+            <input name="answerTwo" required/>
+        </div>
+        <div>
+            <label for="answerThree"> What is your mother's maiden name?</label>
+            <input name="answerThree" required/>
+        </div>
+         <div style="margin:40px;width:100px;height:100px" id="recaptcha-demo" class="g-recaptcha" data-sitekey="6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ-" data-callback="onSubmit">
+         </div>
+        <div class="submitButton">
+            <button id ="submit" type="submit" style="width: 380px;height:40px;border-radius: 0px" disabled="true">Submit</button>
+        </div>
+
+          {% if message!="success" %}
+                <div style="color: red;text-align:center" class="alert alert-danger"> {{message}} </div>
+          {% else %}
+              <div> Registration is successful.Continue to <a href="/loginCustomer">Login</a> </div>
+          {% endif %}
+
+    </form>
+ </div>
+
+
+</body>
+
+<script src="{{ url_for('static', filename='JS/safetravels.js') }}"></script>
+
+
+</html>
+

@@ -1,0 +1,972 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700&family=Merriweather&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito&family=Roboto&display=swap');
+* {box-sizing: border-box;}
+
+/* our color scheme */
+:root {
+    --st-green: #89A676;
+    --st-blue:#76A69C;
+    --st-lightblue: #B8F2E7;
+    --st-lightgreen: #DEF2D0;
+    --st-pink: #F2C4CB;
+}
+
+html {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Typography */
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.logo {
+    /* padding: 10px; */
+    width: 65px
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--st-green);
+    /* position: sticky; */
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.head {
+    padding: 10px 15px;
+    /* border-radius: 10px; */
+    color: black;
+    text-decoration: none;
+}
+
+.head:hover {
+    background-color: var(--st-pink);
+    cursor: pointer;
+    /* margin: 20px; */
+}
+
+.nav-item{
+    color: black;
+    text-decoration: none;
+    background-color: var(--st-lightblue);
+}
+
+.nav-item{
+    color: black;
+    text-decoration: none;
+}
+
+/* Login */
+
+.login-button {
+    background-color: #B8F2E7;
+    color: black;
+    padding: 10px 20px;
+     /*border-radius: 7px;*/
+}
+button:hover{
+    cursor:pointer;
+}
+
+
+.message {
+    color: red;
+}
+
+/* Adds flex to center submit button */
+.submitButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.forgetPass{
+    width: 130px;
+    text-align: center;
+    margin-top: 60px;
+    font-size: 12px;
+}
+
+.submitButton button{
+    width: 100px;
+}
+
+
+/* Styling for base login page */
+.login-page h1{
+    font-size: 40px;
+}
+.login-page label{
+    font-size: 20px;
+}
+.splitPage{
+    width: 100%;
+    display: flex;
+    height: 100vh;
+    /* height: 700px; */
+    /* height: 100%; */
+}
+.login-page .login{
+    background-color: rgba(118, 166, 156, 0.7);
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .login-page .create-account{
+    background-color: rgba(137, 166, 118, 0.7);
+    width: 50%;
+    padding-top: 33vh;
+    text-align: center;
+    width: 50%;
+} */
+
+.login-page .create-account{
+    background-color: rgba(137, 166, 118, 0.7);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-page button{
+    border-radius: 15px;
+    padding: 5px 10px;
+    background-color: white;
+    border: 2px solid white;
+}
+
+.login a{
+    border-radius: 15px;
+    padding: 5px 10px;
+    background-color: white;
+    border: 2px solid white;
+    color: black;
+    text-decoration: none;
+}
+
+.login a:hover{
+    border: 2px solid black;
+}
+
+.login-page button:hover{
+    /* background-color: var(--st-lightblue); */
+    border: 2px solid black;
+}
+.login-page .submitButton{
+    margin-top: 10px;
+}
+
+
+/* Styling for Registration Page */
+.registerCustomer{
+    display: flex;
+    flex-direction: column;
+    width: 375px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.registerCustomer button{
+    border-radius: 15px;
+    padding: 5px 10px;
+    background-color: var(--st-green);
+    border: 2px solid var(--st);
+}
+
+.registerCustomer button:hover{
+    border: 2px solid black;
+}
+
+/* Styles back arrow */
+.backArrow{
+    font-size:28px;
+    position:absolute;
+    top: 75px;
+    color: var(--st-green);
+}
+.backArrow > a:visited{
+    color: var(--st-green);
+}
+.backArrow > a:hover{
+    color: var(--st-blue);
+}
+
+/* Styling for Change Password */
+.changePassword{
+    display: flex;
+    flex-direction: column;
+}
+.inputBox i{
+    position: absolute;
+    margin-top: 13px;
+    margin-left: -25px;
+}
+.inputBox i:hover{
+    cursor:pointer;
+}
+
+/* Controls width and styling of all login/register/password pages (changePassword, forgetPassword, registerCustomer)*/
+.loginWidth{
+    width: 385px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid black; */
+}
+.loginWidth button{
+    border-radius: 15px;
+    padding: 5px 10px;
+    background-color: var(--st-green);
+    border: 2px solid var(--st);
+}
+.loginWidth button:hover{
+    border: 2px solid black;
+}
+.loginWidth input{
+    /* margin: 5px; */
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    /* border-radius: 15px; */
+}
+
+.showPassword {
+    cursor: pointer;
+}
+
+.checkboxNotRobot {
+    display: block;
+    position: absolute;
+    padding-top: 10px;
+    padding-left: 130px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.checkboxNotRobot input {
+    position: absolute;
+    cursor: pointer;
+    top: 6px;
+    left: 100px;
+    padding-left: 30px;
+    padding-top: 20px;
+    height: 18px;
+    width: 18px;
+}
+
+/* Search */
+
+/* Search Input (autocomplete) */
+
+.autocomplete {
+    /*the container must be positioned relative:*/
+    display: flex;
+    flex-flow: column wrap;
+    padding: 30px;
+    width: 800px;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.submitB{
+    /* margin: 0px 10px; */
+    padding: 10px 40px;
+    background-color: var(--st-blue);
+    color: #fff;
+    border-width: 0px;
+    /* max-width: 200px; */
+}
+
+.submitB:hover{
+    background-color: var(--st-pink);
+    cursor: pointer;
+}
+
+.autocomplete input{
+    margin-bottom: 5px;
+}
+
+input {
+    border: 1px solid transparent;
+     /*background-color: black;*/
+    padding: 10px;
+    font-size: 22px;
+}
+  
+#myInput {
+    background-color: #f1f1f1;
+    border: solid black 2px;
+    width: 100%;
+    margin: 10px;
+    color: black;
+}
+
+.search-bar{
+    /* Photo by <a href="https://unsplash.com/@anniespratt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Annie Spratt</a> on <a href="https://unsplash.com/images/travel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> */
+    background: url('../Images/travel.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 600px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons-main{
+    margin-top: 100px;
+}
+
+.buttons-main a{
+    margin: 20px;
+}
+
+.dates{
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-around;
+}
+
+/* home page attraction cards */
+
+.attractions{
+    padding: 0px 40px 40px 40px;
+    
+}
+
+.attractions h1{
+    padding-top: 20px;
+    font-size: 40px;
+}
+
+.attractions h2{
+    /* padding-top: 20px; */
+    font-size: 25px;
+}
+
+.cards{
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 auto;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.card{
+    width: 300px;
+    height: 350px;
+    border: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0px 10px 100px 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin: 20px;
+}
+
+.card img{
+    max-width: 250px;
+    padding: 20px 10px 0px 10px;
+}
+
+.material-symbols-outlined:hover{
+    background-color: var(--st-pink);
+    cursor: pointer;
+    border-radius: 15px;
+    /* padding: 10px; */
+}
+
+.material-symbols-outlined{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    /* font-size: 60px; */
+}
+
+.attrac{
+    position: absolute;
+    bottom: -70px;
+    right: 10px;
+}
+
+.arrow{
+    position:relative;
+    top: 5px;
+    right: -3px;
+}
+
+.attraction-link{
+    /* border: solid red 3px; */
+    margin-top: 40px;
+    width: 100%;
+    text-align:end;
+}
+
+.more-link{
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    border: 3px black solid;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.more-link:hover{
+    background-color: var(--st-pink);
+    cursor: pointer;
+    border-radius: 15px;
+    padding: 10px;
+    
+}
+
+/* flip for back of card */
+
+.card {
+    background-color: transparent;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    height: fit-content;
+  }
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+
+  .flip-card-back {
+    /* background-color: dodgerblue;
+    color: white; */
+    transform: rotateY(180deg);
+  }
+
+/* home page flights */
+
+.flights{
+    background-color: var(--st-lightgreen);
+    padding: 0px 40px 60px;
+}
+
+.flight-details{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.flight-card{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    border: solid 3px black;
+    margin: 20px;
+    position: relative;
+    width: 85%;
+    padding: 20px 20px 20px;
+    background-color:  white;
+}
+
+.flight-icon{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.flight-icon:hover{
+    background-color: var(--st-pink);
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.flights h1{
+    padding: 40px 0px 0px 0px;
+    font-size: 40px;
+}
+
+.flight-card h3{
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.flight-card p{
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* restaurant cards */
+
+.restaurants{
+    padding: 40px 40px 60px 40px;
+    /* background-color: var(--st-lightgreen); */
+    /* padding: 0px 40px 60px; */
+}
+
+.restaurants h1{
+    /* padding: 40px 0px 0px 40px; */
+    margin-top: 0px;
+    font-size: 40px;
+}
+
+.rest p{
+    padding: 5px;
+    margin: 0px;
+}
+
+.rest{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.rest img{
+    padding-top: 70px;
+}
+
+/* Hotel cards */
+
+.hotels{
+    padding: 40px 40px 60px;
+    background-color: var(--st-lightgreen);
+}
+
+.hotel-cards{
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.hotels h1{
+    /* padding: 40px 0px 0px 40px; */
+    font-size: 40px;
+    margin-top: 0px;
+    /* margin-bottom: 0px; */
+}
+
+.hotels h3{
+    margin-bottom: 0px;
+}
+
+.hotels img{
+    max-width: 200px;
+    padding-right: 20px;
+}
+
+.image-and-title{
+    display: flex;
+}
+
+.hotel-card{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    border: solid 3px black;
+    width: 750px;
+    padding: 20px;
+    margin: 20px 20px;
+    background-color: white;
+}
+
+.align{
+    text-align: end;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+}
+
+.hotel-icon{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.hotel-icon:hover{
+    background-color: var(--st-pink);
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.hotels p{
+    font-size: 14px;
+    margin-top: 3px;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+.separate-title{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+}
+
+.add-price{
+    margin-bottom: 20px;
+}
+
+/*///////////////////////////////////////// Restaurant Page  */
+
+.restaurant-search-bar{
+    /* Photo by <a href="https://unsplash.com/@covertnine?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tim Toomey</a> on <a href="https://unsplash.com/s/photos/restaurant-food?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+   */
+    background: url('../Images/restaurant.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.hotel-search-bar{
+    /* Photo by <a href="https://unsplash.com/@covertnine?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tim Toomey</a> on <a href="https://unsplash.com/s/photos/restaurant-food?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+   */
+    background: url('../Images/hotel.jpeg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+/* cards */
+
+.rest-page img{
+    padding: 0px;
+    max-height: 187px;
+}
+
+.rest-page h2{
+    padding-top: 10px;
+    text-align: center;
+}
+
+.rest-page{
+    height:400px;
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+
+.filters-restaurant{
+    /* border: red solid 2px; */
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 200px;
+    border: solid 3px black;
+    justify-content: center;
+}
+
+.filters-restaurant p{
+    background-color: var(--st-blue);
+    padding: 5px;
+    text-align: center;
+}
+
+.filters-restaurant h3{
+    /* margin: 15px; */
+    text-align: center;
+}
+
+.filters{
+    margin: 0px 15px 15px 15px;
+    /* display: flex;
+    justify-content: center;
+    flex-flow: row wrap; */
+}
+
+.filters input{
+    margin: 5px;
+}
+
+.filter label{
+    margin-right: 10px;
+}
+
+.apply{
+    margin: 15px;
+}
+
+.restaurant-main{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    /* border: blue solid 2px; */
+}
+
+.cards-rest{
+    /* border: green solid 2px; */
+    /* max-width: 1400px; */
+    margin:0;
+}
+
+.checked {
+  color: orange;
+}
+span.inline{
+    display: contents;
+}
+
+
+/*///////////////////////////////////////// Attractions Page  */
+
+.attractions-search-bar{
+    /* Photo by <a href="https://unsplash.com/@covertnine?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tim Toomey</a> on <a href="https://unsplash.com/s/photos/restaurant-food?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+   */
+    background: url('../Images/attractions.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+/*///////////////////////////////////////// Flights Page  */
+
+
+
+/*///////////////////////////////////////// Hotels Page  */
+
+
+/*///////////////////////////////////////// Itinerary Page  */
+.itinerary-card{
+    max-width:600px;
+    height:300px;
+    /* margin-top: 15px; */
+    padding:10px;
+    border: 1px solid black; 
+    box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+    display: flex;
+    margin: 10px;
+    /* border: solid green 2px; */
+}
+
+.itinerary-image img{
+    /* width: 50%; */
+    /* float: left; */
+    width: 200px;
+}
+
+/* .itinerary-image{
+    max-width: 160px;
+} */
+
+.itinerary-right-card{
+     margin-left: 60%;
+    width:50%
+    /* float: bottom; */
+    /* border: solid red 2px; */
+    /* display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    max-width: 300px; */
+}
+
+.itinerary-unfavorite{
+    background-color:var(--st-blue);
+    color: black;
+    width: 120px;
+    height:30px;
+    border-radius: 4px
+}
+
+.itinerary-unfavorite:hover{
+    background-color:var(--st-pink);
+}
+
+.itinerary-cards{
+    /* padding:10px; */
+    /* width: 55%; */
+    /* border: solid blue 2px; */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.title-itinerary{
+    /* border: solid purple 2px; */
+    /* margin: 30px; */
+    display:flex;
+    margin-top: 30px;
+}
+
+.favorite-restaurants{
+    margin: 30px;
+}
+
+.favorites{
+    /* border: solid pink 2px; */
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.itinerary-left-card{
+    /* border: solid orange 2px; */
+    width:50%;
+    display: flex;
+    flex-flow: column wrap;
+    margin-right: 30px;
+}
+
+.book{
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    border: 3px black solid;
+    border-radius: 15px;
+    background-color: white;
+    height: 50px;
+    margin-left: 20px;
+    /* position: fixed;
+    z-index: 100;
+    top:700px;
+    right:20px; */
+}
+
+.book:hover{
+    background-color: var(--st-pink);
+    cursor: pointer;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.itinerary-search-bar{
+    /* Photo by <a href="https://unsplash.com/@covertnine?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tim Toomey</a> on <a href="https://unsplash.com/s/photos/restaurant-food?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+   */
+    background: url('../Images/itinerary.jpg') no-repeat center center fixed;
+    background-size: cover;
+    width: 100%;
+}
+
+.itinerary-search-bar h1{
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+.flight-search-bar{
+      background: url('../Images/airlines2.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    width: 100%;
+}
+
+#myDialog {
+   width: 500px;
+   height: 80px;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+    border-radius: 5px;
+    border-color: #555555;
+   transform: translate(-50%, -50%);
+    background-color: #d4edda;
+}
+
+/* Reviews */
+
+.main{
+    display: flex;
+    justify-content: center;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    align-items: center;
+    /* align-self: center; */
+    margin-top: 100px;
+    border: 4px solid var(--st-pink);
+    max-width: 800px;
+    padding: 40px;
+}
+
+.review-rating{
+    display: flex;
+    margin: 10px;
+}
+
+.review-rating label{
+    padding-right: 10px;
+}
+
+main button{
+    margin-top: 10px;
+    background-color: var(--st-blue);
+    border: none;
+    padding: 10px;
+    color: white;
+}
+
+main button:hover{
+    background-color: var(--st-pink);
+}
+
+main p{
+    margin: 0;
+}
+
+.fa-star:hover{
+    color: var(--st-pink);
+}
+
+
+/* Servane Making It Pretty */
+
+#response{
+    display: flex;
+}
+
+.flight-crads{
+    display: block;
+    margin: 0px 60px
+}
+
+.hotel-crad{
+    width:100%;
+    margin-top: 15px;
+    padding:20px;
+    border: 1px solid black; 
+    box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+    max-width: 600px;
+}
+
+.hotel-crads{
+    display: flex;
+    flex-flow: row wrap;
+}

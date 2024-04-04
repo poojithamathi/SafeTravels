@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8"/>
+        <meta name = "'viewpoint">
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/normalize.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/safetravels.css') }}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>{% block title%}Home{% endblock %}</title>
+        
+    </head>
+    <script src="/../static/JS/safetravels.js"></script>
+    <script>
+    var user='{{ user }}'
+    if(user!=""){
+        sessionStorage.setItem('user',user)
+        window.location.href='/home'
+    }
+</script>
+    <body onload="setUser()">
+        <header>
+            <a href="/"><img class="logo" src="{{ url_for('static', filename='Images/SafeTravelsLogo.png') }}"> </a>
+            <!-- <p class="head">Search</p> -->
+            <a href="/searchAttractions" class="head">Attractions</a>
+            <a href="/flight" class="head">Flights</a>
+            <a href="/searchHotels" class="head">Hotels</a>
+            <a href="/searchRestaurants" class="head">Restaurants</a>
+                <!-- maybe flights, hotels, and restaurants could be a drop down menu -->
+           <a class="head" onclick="getUserItinerary()" >Itinerary</a>
+            <a class="head login nav-item nav-link" id="loginCustomer" href="/loginCustomer" onclick="loggingUser()">Login/Sign Up</a>
+                <!-- login page -->
+        </header>
+            
+        <div class="search-bar">
+            <form autocomplete="off" id ="myForm" action="/homePage" class="searchF">
+                <div class="autocomplete">
+                    <input id="user" name="user" style="display: None"/>
+                    <input id="myCountry" type="text" name="myCountry" placeholder="Where from?">
+                    <input class="submitB" type="submit">
+                    <br>
+
+                </div>
+            </form>
+            <div class="buttons-main">
+                <a href="#attractions" class="more-link">Attractions</a>
+                <a href="#hotels" class="more-link">Hotels</a>
+                <a href="#restaurants" class="more-link">Restaurant</a>
+            </div>
+        </div>
+<!--         <button id="api-button" onclick="showRestaurants()">Call API</button>-->
+        <!-- https://www.w3schools.com/howto/howto_css_flip_card.asp -->
+        <div id="attractions" class="attractions">
+            <h1>Attractions</h1>
+                <div>
+                    <div class="cards">
+                      {% for attraction in attractions %}
+          
+                      <div class="card">
+                          <h2>{{ attraction.name }}</h2>
+                          <img src="{{ attraction.image_url }}" alt="{{ attraction.name }}" style="height:200px">
+                          <div style="padding-top: 5px">
+          
+                           <div>
+                           <p>Price: ${{ attraction.price }}</p>
+                              <span class="inline">Ratings:</span>
+                              {% for i in range(1,attraction.rating | int + 1) %}
+                                  <span class="fa fa-star checked inline"></span>
+                              {% endfor %}
+          
+                          </div>
+                              <p>Contact Number: {{ attraction.display_phone }}</p>
+                          </div>
+                          <span class="material-symbols-outlined" onclick="addToFavouriteAttractions('{{attraction.location.city}}','{{attraction.name}}','{{attraction.image_url}}','{{attraction.rating}}','{{attraction.display_phone}}')"> add</span>
+                      </div>
+                      {% endfor %}
+                  </div>
+                  </div>
+            <div class="attraction-link">
+                <a href="/searchAttractions" class="more-link">more attractions <span class="material-symbols-outlined arrow">arrow_forward</span></a>
+            </div>
+        </div>
+
+        <div id="hotels" class="hotels">
+            <h1>Hotels</h1>
+            <div class="hotel-cards">
+                {% for hotel in hotels %}
+                <div>
+                    <div class="hotel-card">
+                        <h2>{{ hotel.name }}</h2>
+                        <img src="{{ hotel.image_url }}" alt="{{ hotel.title }}">
+                        <div>
+                             <p>Price: ${{ hotel.price }}</p>
+                            <span class="inline">Ratings:</span>
+                            {% for i in range(1,hotel.rating | int + 1) %}
+                                <span class="fa fa-star checked inline"></span>
+                            {% endfor %}
+                            <p>Contact Number: {{ hotel.display_phone }}</p>
+                            <!-- <div>
+                                <button style="background-color: #F2C4CB;color: black;width: 120px;height:30px;border-radius: 4px; margin-top: 10px;" onclick="bookHotel('{{ hotel.name }}','{{ hotel.price }}','{{ hotel.rating }}','{{ hotel.display_phone }}','{{ hotel.image_url }}')"> Book</button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="attraction-link">
+                <a href="/searchHotels" class="more-link">more hotels <span class="material-symbols-outlined arrow">arrow_forward</span></a>
+            </div>
+        </div>
+
+        <div id="restaurants" class="restaurants">
+            <h1>Restaurants</h1>
+            <div class="cards cards-rest">
+                {% for restaurant in restaurants %}
+                <div class="card rest rest-page">
+                    <h2>{{ restaurant.name }}</h2>
+                    <img src="{{ restaurant.image_url }}" alt="{{ restaurant.name }}">
+                    <div style="padding-top: 5px">
+                        <div>
+                            <span class="inline">Ratings:</span>
+                            {% for i in range(1,restaurant.rating | int + 1) %}
+                                <span class="fa fa-star checked inline"></span>
+                            {% endfor %}
+                        </div>
+                        <p>Contact Number: {{ restaurant.display_phone }}</p>
+                    </div>
+                    <span class="material-symbols-outlined" onclick="addToFavouriteRestaurants('{{restaurant.location.city}}','{{restaurant.name}}','{{restaurant.image_url}}','{{restaurant.rating}}','{{restaurant.display_phone}}')"> add</span>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="attraction-link">
+                <a href="/searchRestaurants" class="more-link">more restaurants <span class="material-symbols-outlined arrow">arrow_forward</span></a>
+            </div>
+        </div>
+        
+        <script src="{{ url_for('static', filename='JS/safetravels.js') }}"></script>
+
+    </body>
+</html>

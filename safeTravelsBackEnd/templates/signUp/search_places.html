@@ -1,0 +1,16 @@
+<p>search Page</p>
+<form action="{{ url_for('search_places') }}" method="get">
+  <input type="text" id="search-input" name="query" placeholder="Search for a destination">
+  <button type="submit">Search</button>
+</form>
+<script>
+  $(function() {
+    $('#search-input').typeahead({
+      source: function(query, process) {
+        $.get('{{ url_for('autocomplete') }}', { query: query }, function(data) {
+          process(data);
+        });
+      }
+    });
+  });
+</script>

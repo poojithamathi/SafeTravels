@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/safetravels.css') }}">
+    <script src="https://kit.fontawesome.com/69f4ec8e86.js" crossorigin="anonymous"></script>
+    <title>Customer Login</title>
+</head>
+<script>
+    var user='{{ user }}'
+    if(user!=""){
+        sessionStorage.setItem('user',user)
+    }
+    var error_message='{{ error_message }}'
+    if(error_message!=""){
+        alert(error_message)
+    }
+</script>
+
+<body class="login-page">
+    <header>
+        <a href="/"><img class="logo" src="{{ url_for('static', filename='Images/SafeTravelsLogo.png') }}"> </a>
+        <!-- <p class="head">Search</p> -->
+        <a href="/searchAttractions" class="head">Attractions</a>
+        <a href="/flight" class="head">Flights</a>
+        <a href="/searchHotels" class="head">Hotels</a>
+        <a href="/searchRestaurants" class="head">Restaurants</a>
+            <!-- maybe flights, hotels, and restaurants could be a drop down menu -->
+        <a class="head" onclick="getUserItinerary()" >Itinerary</a>
+            <!-- cant access the itinerary page till logged in -->
+    </header>
+
+    <div class="splitPage">
+        <div class="create-account">
+            <h1>New to Safetravels?</h1>
+            <div>
+                <button type="button" onclick="window.location.href='registerCustomer'">Create an account</button>
+            </div>
+        </div>
+
+        <div class="login">
+            <form class="login-form" method="POST">
+                <h1 style="text-align:center; margin-bottom:10px">Login</h1>
+                <div>
+                    <div>
+                        <label for="email"> Email </label>
+                    </div>
+                    <input name="emailAddress" id="emailAddress"/>
+                </div>
+                <div>
+                    <div>
+                        <label for="password"> Password </label>
+                        <i class="fa-regular fa-eye-slash showPassword" id="showPassword"></i>
+                    </div>
+                    <input name="password" type="password" id="passwordInput"/>
+                </div>
+                <div class="submitButton">
+                    <button type="submit" class="btn btn-primary"> Submit</button>
+                    <a class="forgetPass" href="/forgetPassword">Forgot Password?</a>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</body>
+
+<script src="{{ url_for('static', filename='JS/safetravels.js') }}"></script>
+<!-- fix this later -->
+<!-- <a class="nav-item nav-link" id="home" href="/home"> Home </a>
+<a class="nav-item nav-link" id="forgetPassword" href="/forgetPassword"> Forget Password </a> -->
+</html>
+
+            <!-- <div> New User Registration </div>
+            <a class="nav-item nav-link" id="registerCustomer" href="/registerCustomer.html"> Register </a>
+            <p class="message">{% with messages = get_flashed_messages(with_categories = true) %}
+                {% if messages %}
+                {% for message in messages %}
+            <div id="message" class="alert alert-danger"> {{message}} </div>
+
+    {% endfor %}
+    {% endif %}
+    {% endwith %}</p> -->

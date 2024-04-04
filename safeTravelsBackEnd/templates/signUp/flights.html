@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/safetravels.css') }}">
+    <script src="https://kit.fontawesome.com/69f4ec8e86.js" crossorigin="anonymous"></script>
+    <title>Flights</title>
+</head>
+<body>
+    <header>
+        <a href="/"><img class="logo" src="{{ url_for('static', filename='Images/SafeTravelsLogo.png') }}"> </a>
+        <!-- <p class="head">Search</p> -->
+        <a href="/searchAttractions" class="head">Attractions</a>
+        <a href="/flight" class="head">Flights</a>
+        <a href="/searchHotels" class="head">Hotels</a>
+        <a href="/searchRestaurants" class="head">Restaurants</a>
+            <!-- maybe flights, hotels, and restaurants could be a drop down menu -->
+        <a href="/itinerary" class="head">Itinerary</a> 
+            <!-- cant access the itinerary page till logged in -->
+        <a class="head login nav-item nav-link" id="loginCustomer" href="/loginCustomer">Login/Sign Up</a>
+    </header>
+
+    <h1>Flights</h1>
+
+    <script src="{{ url_for('static', filename='JS/safetravels.js') }}"></script>
+</body>
+</html>

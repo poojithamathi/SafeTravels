@@ -1,0 +1,14 @@
+    <script>
+        var logged_in=sessionStorage.getItem('user_loggedin')
+        if(logged_in==null){
+            alert('Logged out!!')
+            window.location.href='http://127.0.0.1:5000/loginCustomer'
+        }
+    </script>
+
+<p>Logout Page</p>
+
+<form method = "POST">
+    <h3 > Press button to logout</h3>
+    <button type = "submit" class = "btn btn-primary"> Submit</button>
+</form>
